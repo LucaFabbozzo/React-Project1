@@ -1,3 +1,6 @@
+import { Create } from "./components/Create";
+import { List } from "./components/List";
+import { Searcher } from "./components/Searcher";
 
 
 function App() {
@@ -20,56 +23,15 @@ function App() {
     </nav>
     {/* main content */}
     <section className="content">
-      {/* here the movies */}
-      <article className="movi-item">
-        <h3 className="title">Web development</h3>
-        <p className="description">lucafabbozzo.com</p>
-
-        <button className="edit">Edit</button>
-        <button className="delete">Delete</button>
-      </article>
-      <article className="movi-item">
-        <h3 className="title">Web development</h3>
-        <p className="description">lucafabbozzo.com</p>
-
-        <button className="edit">Edit</button>
-        <button className="delete">Delete</button>
-      </article>
-      <article className="movi-item">
-        <h3 className="title">Web development</h3>
-        <p className="description">lucafabbozzo.com</p>
-
-        <button className="edit">Edit</button>
-        <button className="delete">Delete</button>
-      </article>
-            <article className="movi-item">
-        <h3 className="title">Web development</h3>
-        <p className="description">lucafabbozzo.com</p>
-
-        <button className="edit">Edit</button>
-        <button className="delete">Delete</button>
-      </article>
+      {/* here the list movies */}
+      <List />
     </section>
 
     {/* sidebar */}
     <aside className="side">
-      <div className="search">
-        <h3 className="title">Searcher</h3>
-        <form>
-          <input type="text" />
-          <button>Search</button>
-        </form>
-      </div>
-
-      <div className="add">
-        <h3 className="title">Add Movie</h3>
-        <form>
-          <input type="text" placeholder="Title"/>
-          <textarea placeholder="description"></textarea>
-          <input type="submit" value="Save" />
-        </form>
-      </div>
-      </aside>
+      <Searcher />
+      <Create />
+    </aside>
 
     {/* footer */}
     <footer className="footer">
