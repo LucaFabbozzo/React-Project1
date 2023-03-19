@@ -1,36 +1,35 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 export const List = () => {
+
+  const [listState, setListState] = useState([]);
+
+    useEffect(() => {
+      addMovies();
+    }, []);
+
+  const addMovies = () => {
+    let movies = JSON.parse(localStorage.getItem('movies'));
+
+    setListState(movies);
+  }
+
+
   return (
     <>
-      <article className="movi-item">
-        <h3 className="title">Web development</h3>
-        <p className="description">lucafabbozzo.com</p>
-
-        <button className="edit">Edit</button>
-        <button className="delete">Delete</button>
-      </article>
-      <article className="movi-item">
-        <h3 className="title">Web development</h3>
-        <p className="description">lucafabbozzo.com</p>
-
-        <button className="edit">Edit</button>
-        <button className="delete">Delete</button>
-      </article>
-      <article className="movi-item">
-        <h3 className="title">Web development</h3>
-        <p className="description">lucafabbozzo.com</p>
-
-        <button className="edit">Edit</button>
-        <button className="delete">Delete</button>
-      </article>
-      <article className="movi-item">
-        <h3 className="title">Web development</h3>
-        <p className="description">lucafabbozzo.com</p>
-
-        <button className="edit">Edit</button>
-        <button className="delete">Delete</button>
-      </article>
+      {listState != null ? listState.map(movie => {
+        return (
+          <article key={movie.id} className="movi-item">
+            <h3 className="title">{movie.title}</h3>
+            <p className="description">{movie.description}</p>
+            <button className="edit">Edit</button>
+            <button className="delete">Delete</button>
+          </article>
+        );
+      })
+      
+        : <h2>No movies around here</h2>
+      }
     </>
   );
 }
