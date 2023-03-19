@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 
-export const List = () => {
+export const List = ({listState, setListState}) => {
 
-  const [listState, setListState] = useState([]);
+  //const [listState, setListState] = useState([]);
 
     useEffect(() => {
       addMovies();
@@ -17,19 +17,20 @@ export const List = () => {
 
   return (
     <>
-      {listState != null ? listState.map(movie => {
-        return (
-          <article key={movie.id} className="movi-item">
-            <h3 className="title">{movie.title}</h3>
-            <p className="description">{movie.description}</p>
-            <button className="edit">Edit</button>
-            <button className="delete">Delete</button>
-          </article>
-        );
-      })
-      
+      {listState != null ?
+            listState.map(movie => {
+            return (
+              <article key={movie.id} className="movi-item">
+                <h3 className="title">{movie.title}</h3>
+                <p className="description">{movie.description}</p>
+                <button className="edit">Edit</button>
+                <button className="delete">Delete</button>
+              </article>
+              );
+            })
+        
         : <h2>No movies around here</h2>
       }
     </>
-  );
+  )
 }

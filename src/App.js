@@ -1,9 +1,13 @@
+import { useState } from "react";
 import { Create } from "./components/Create";
 import { List } from "./components/List";
 import { Searcher } from "./components/Searcher";
 
 
 function App() {
+
+  const [listState, setListState] = useState([]);
+
   return (
     <div className="layout">
     {/* header */}
@@ -24,13 +28,13 @@ function App() {
     {/* main content */}
     <section className="content">
       {/* here the list movies */}
-      <List />
+        <List listState={listState} setListState={setListState} />
     </section>
 
     {/* sidebar */}
     <aside className="side">
       <Searcher />
-      <Create />
+        <Create setListState={setListState} />
     </aside>
 
     {/* footer */}
