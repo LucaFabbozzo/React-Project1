@@ -12,6 +12,21 @@ export const List = ({listState, setListState}) => {
     let movies = JSON.parse(localStorage.getItem('movies'));
 
     setListState(movies);
+
+    return movies;
+  }
+
+  const deleteMovie = (id) => {
+    // get stored movies
+    let movies_stored = addMovies();
+    // Filter those movies so that I eliminate the one I don't want from the array
+    let new_movies_array = movies_stored.filter(movie => movie.id !== parseInt(id));
+
+    // Update the state of the list
+    setListState(new_movies_array);
+
+    // Update data into localStorage
+    localStorage.setItem('movies', JSON.stringify(new_movies_array));
   }
 
 
@@ -24,7 +39,7 @@ export const List = ({listState, setListState}) => {
                 <h3 className="title">{movie.title}</h3>
                 <p className="description">{movie.description}</p>
                 <button className="edit">Edit</button>
-                <button className="delete">Delete</button>
+                <button className="delete" onClick={() => deleteMovie(movie.id)}>Delete</button>
               </article>
               );
             })
