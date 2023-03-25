@@ -142,6 +142,16 @@ input[type="button"] {
   background: #9b0202;    
 }
 
+
+.edit_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
 /* sidebar */
 
 .side {
@@ -162,9 +172,9 @@ input[type="button"] {
   box-shadow: 0px 0px 6px #ddd;
 }
 
-.side input[type="text"],
-.side input[type="text"],
-.side textarea {
+ input[type="text"],
+ input[type="text"],
+ textarea {
   display: block;
   margin: 0 auto;
   margin-top: 15px;
@@ -177,6 +187,9 @@ input[type="button"] {
   outline: 0;
   border-color: transparent;
 }
+
+
+
 
 
 /* footer */
