@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Edit = () => {
+export const Edit = ({movie}) => {
 
   const title_component = "Edit Movie";
 
@@ -12,10 +12,10 @@ export const Edit = () => {
           type="text"
           name="title"
           className='edit_title'
-          defaultValue="Movie original title" />
+          defaultValue={movie.title} />
         <textarea
           name='description'
-          defaultValue='Original description'
+          defaultValue={movie.description}
           className='edit_description' />
         <input type='submit' className='edit' value='Update' />
       </form>
