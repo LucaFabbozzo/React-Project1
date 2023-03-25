@@ -1,13 +1,37 @@
 import React from 'react'
 
-export const Edit = ({movie}) => {
+export const Edit = ({movie, addMovies}) => {
 
   const title_component = "Edit Movie";
+
+  const saveEdit = (e, id) => {
+    e.preventDefault();
+    
+    let target = e.target;
+    
+    const movies_saved = addMovies();
+    const index = movies_saved.findIndex(movie => movie.id === id);
+    
+    //crear un objeto con ese id de ese indice, con titulo y description del formulario
+    let movie_updated = {
+      id,
+      title: target.title.value,
+      description: target.description.value,
+    };
+
+    //Actualizar el elemento con ese indice
+    movies_saved[index] = movie_updated;
+
+    //Guardar el nuevo array de objectos en el LocalStorage
+
+    //actualizar estados
+
+  }
 
   return (
     <div>
       <h3 className='title'>{title_component}</h3>
-      <form className='edit_form'>
+      <form className='edit_form' onSubmit={e => saveEdit(e, movie.id)}>
         <input
           type="text"
           name="title"
