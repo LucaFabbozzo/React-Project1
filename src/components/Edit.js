@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Edit = ({movie, addMovies}) => {
+export const Edit = ({movie, addMovies, setEdit, setListState}) => {
 
   const title_component = "Edit Movie";
 
@@ -23,9 +23,11 @@ export const Edit = ({movie, addMovies}) => {
     movies_saved[index] = movie_updated;
 
     //Guardar el nuevo array de objectos en el LocalStorage
+    localStorage.setItem('movies', JSON.stringify(movies_saved));
 
     //actualizar estados
-
+    setListState(movies_saved);
+    setEdit(0);
   }
 
   return (

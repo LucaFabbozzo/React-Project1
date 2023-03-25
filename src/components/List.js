@@ -49,7 +49,10 @@ export const List = ({listState, setListState}) => {
                 {edit === movie.id && (
                   <Edit
                     movie={movie}
-                    addMovies={addMovies} />
+                    addMovies={addMovies}
+                    setEdit={setEdit}
+                    setListState={setListState}
+                    />
                 )}
 
               </article>
